@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Formularz</title>
+  </head>
+  <body>
+    <h1>Formularz</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <form>
+        <div class="form-group">
+          <label for="exampleCompanyName">Nazwa Firmy</label>
+          <input class="form-control" name = "nazwaFirmy" id="exampleCompanyName"  placeholder="Wprowadz firme" requierd>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleNIP">NIP</label>
+          <input type="nip" class="form-control" name = "NIP" id="exampleNIP" placeholder="NIP" requierd>
+        </div>
+
+          <div class="form-group">
+            <label for="exampleCity">Miasto</label>
+            <input type="city" class="form-control" name = "Miasto" id="exampleCity" placeholder="Miasto" requierd>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleStreet">Ulica</label>
+            <input type="street" class="form-control" name = "Ulica" id="exampleNIP" placeholder="Ulica" requierd>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleStreet">Numer domu</label>
+            <input type="housenumber" class="form-control" name = "numerDomu" id="exampleHouseNumber" placeholder="Numer domu" requierd>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleStreet">Numer mieszkania</label>
+            <input type="flatnumber" class="form-control" name = "numerMieszkania" id="exampleFlatNumber" placeholder="Numer mieszkania" requierd>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleStreet">Kod pocztowy</label>
+            <input type="kodpocztowy" class="form-control" name = "kodPocztowy" id="examplePostCode" placeholder="Kod pocztowy" requierd>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleStreet">Uwagi</label>
+            <textarea type="uwagi" class="form-control" name = "uwagi" id="uwagi" placeholder="Uwagi"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleStreet">Branża</label>
+            <select type="branza" class="form-control" name = "branza" id="branza" placeholder="Branża">
+                <option>cos</option>
+                <option>cos2</option>
+            </select>
+          </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+<script>
+
+function myFunction(event) {
+    event.preventDefault();
+    const formData = new formData(document.getElementById('myForm'));
+    const fromObject = {};
+
+    formData.forEach((value, key) => {
+        fromObject[key] = value;
+    });
+
+    const isActiveCheckbox = document.getElementByID('isActive');
+    fromObject['isActive'] = isActiveCheckbox.checked ? true : false;
+
+    console.log(fromObject);
+}
+
+function fillForm() {
+    document.querySelector('[name="companyName"]').value = 'Firma XYZ';
+    document.querySelector('[name="nip"]').value = '1234567890';
+    document.querySelector('[name="city"]').value = 'Warszawa';
+    document.querySelector('[name="street"]').value = 'Ulica 1';
+    document.querySelector('[name="houseNumber"]').value = '10';
+    document.querySelector('[name="apartmentNumber"]').value = '5';
+    document.querySelector('[name="postalCode"]').value = '00-000';
+    document.querySelector('[name="notes"]').value = 'Uwagi';
+    document.querySelector('[name="industry"]').value = 'cos';
+    document.querySelector('[name="isActive"]').value = true;
+
+    const inputs = document.querySelectALL('#myForm input, #myForm textarea, #myForm select');
+    inputs.forEach(input => {
+        input.disabled = true;
+    });
+
+}
+
+</script>
+
+  </body>
+</html>

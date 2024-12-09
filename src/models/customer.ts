@@ -1,32 +1,29 @@
-class Customer {
-    id: string = "";
-    nazwaFirmy: string = "";
+class Customer{
+    constructor(){}
+
+    name: string = "";
     nip: string = "";
-    miasto: string = "";
-    ulica: string = "";
-    numerDomu: string = "";  
-    numerMieszkania: string = "";
-    kodPocztowy: string = "";
-    uwagi: string = "";
-    branza: string = "";
-    aktywny: boolean = true;
+    city: string = "";
+    street: string = "";
+    houseNumber: string = "";
+    zipCode: string = "";
+    comments: string = "";
+    industry: string = "";
+    active: boolean = true
 
-    getData(){
-        return `${this.nazwaFirmy} (${this.nip})`;
+    getAddress():string {
+        return `${this.city} ${this.zipCode} ${this.street} ${this.houseNumber}`;
     }
-
-    getAddress(){
-        return `Miasto: ${this.miasto}, kod pocztowy: ${this.kodPocztowy}, numer mieszkania: ${this.numerMieszkania}`
+    getCustomerInfo():string {
+        return `${this.name} (${this.nip})`;
     }
 }
 
-
-class Supplier extends Customer {
-    accountNumber: string;
-    invoices: string[] = [];
-
-    constructor(accountNumber: string){
-        super()
-        this.accountNumber= accountNumber
+class Supplier extends Customer{
+    constructor(accountNumber: any){
+        super();
+        accountNumber = accountNumber;
     }
+    accountNumber:string  = "";
+    invoices:Invoice[] = [];
 }

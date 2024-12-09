@@ -1,12 +1,6 @@
 enum Unit{
     KG,
+    G,
     L,
     ML,
-    G,
-    J,
-    KJ,
-    N,
-    SZTUKI,
-    BAJTY,
-    BITY,
 }

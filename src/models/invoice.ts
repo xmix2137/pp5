@@ -1,8 +1,8 @@
-class Invoice {
+class Invoice{
     name: string = "";
     quantity: number = 0;
     unit?: Unit;
-    netto?: number;
     tax?: Tax;
+    netto?: number;
     brutto?: number;
 }

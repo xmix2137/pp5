@@ -7,10 +7,9 @@ import { CustomerService } from '../../Services/customer.service';
   selector: 'app-customer-list',
   standalone: false,
   templateUrl: './customer-list.component.html',
-  styleUrl: './customer-list.component.scss'
+  styleUrl: './customer-list.component.scss',
 })
-export class CustomerListComponent implements OnInit, OnDestroy {  
-
+export class CustomerListComponent implements OnInit, OnDestroy {
   customersList: Customer[] = [];
 
   constructor(
@@ -23,16 +22,26 @@ export class CustomerListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.customersList = this.customerService.getCustomers();
+    this.getCustomers();
   }
 
   ngOnDestroy(): void {
-    console.log("Exiting")
+    console.log('Exiting');
   }
 
-  deleteCustomer(customer:Customer){
-    console.log("rodzic ma usunąc:", customer)
-    this.customersList = this.customerService.removeCustomer(customer)
+  deleteCustomer(customer: Customer) {
+    //console.log('rodzic ma usunąc:', customer);
+    this.customerService
+      .removeCustomer(customer)
+      .subscribe((data: Customer) => {
+        console.log(data);
+        this.getCustomers();
+      });
   }
 
+  getCustomers() {
+    this.customerService.getCustomers().subscribe((data: Customer[]) => {
+      this.customersList = data;
+    });
+  }
 }

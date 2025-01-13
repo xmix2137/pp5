@@ -6,21 +6,22 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CustomerListElementComponent } from './components/customer-list-element/customer-list-element.component';
 import { CustomersRoutingModule } from './app-routing.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CustomerService } from './Services/customer.service';
 
 @NgModule({
   declarations: [
     CustomerFormComponent,
     CustomerListComponent,
-    CustomerListElementComponent
+    CustomerListElementComponent,
   ],
-  exports:[
-    CustomerFormComponent
-  ],
+  exports: [CustomerFormComponent],
   imports: [
     CommonModule,
     CustomersRoutingModule,
     FormsModule,
-
-  ]
+    HttpClientModule,
+  ],
+  providers: [CustomerService],
 })
-export class InvoiceModule { }
+export class InvoiceModule {}
